@@ -137,24 +137,60 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   line-height: 1.5;
 }
 
-/* Photo gallery under entries */
+/* Photo gallery under entries — uniform thumbnails, click to zoom */
 .entry-photos {
-  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
 }
 .entry-photo {
   border-radius: 6px; overflow: hidden;
   border: 1px solid var(--border);
   background: #fff;
-  max-width: 200px;
+  width: 180px;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.entry-photo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
 }
 .entry-photo img {
-  width: 100%; height: auto; display: block;
+  width: 180px; height: 135px; object-fit: cover; display: block;
 }
 .entry-photo .photo-caption {
-  padding: 6px 10px;
+  padding: 5px 8px;
   font-size: 1.2rem; color: var(--muted);
   text-align: center;
 }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.9);
+  z-index: 9999;
+  align-items: center; justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw; max-height: 85vh;
+  border-radius: 4px;
+  cursor: default;
+  box-shadow: 0 8px 40px rgba(0,0,0,.5);
+}
+.lightbox .lb-caption {
+  color: rgba(255,255,255,.7);
+  font-size: 1.4rem; margin-top: 12px;
+  cursor: default;
+}
+.lightbox .lb-close {
+  position: absolute; top: 20px; right: 28px;
+  color: rgba(255,255,255,.7); font-size: 2.4rem;
+  cursor: pointer; background: none; border: none;
+  transition: color .2s;
+}
+.lightbox .lb-close:hover { color: #fff; }
 
 /* ==========================================
    HERO — LinkedIn style with HKU background
@@ -1087,6 +1123,15 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
 </footer>
 
 <!-- ==========================================
+     LIGHTBOX
+     ========================================== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">&times;</button>
+  <img src="" alt="" id="lb-img" onclick="event.stopPropagation()">
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<!-- ==========================================
      SCRIPTS
      ========================================== -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1133,6 +1178,32 @@ AOS.init({ duration: 600, easing: 'ease-out-cubic', once: true, offset: 80, disa
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
 })();
+
+// Lightbox
+function openLightbox(imgEl) {
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCap = document.getElementById('lb-caption');
+  lbImg.src = imgEl.src;
+  lbCap.textContent = imgEl.alt || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// Bind photo clicks
+document.querySelectorAll('.entry-photo').forEach(el => {
+  el.addEventListener('click', e => {
+    e.stopPropagation();
+    const img = el.querySelector('img');
+    if (img) openLightbox(img);
+  });
+});
 
 // Mobile hamburger
 (function() {
