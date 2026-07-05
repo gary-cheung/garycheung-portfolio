@@ -29,6 +29,7 @@
   --border:      #E0DFDC;
   --gold:        #D4A853;
   --gold-light:  #FDF6E4;
+  --hku-green:   #006C4C;
   --shadow-sm:   0 0 0 1px rgba(0,0,0,.08);
   --shadow-card: 0 0 0 1px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
   --radius:      8px;
@@ -59,7 +60,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 12px; }
 
 /* ==========================================
-   SECTION CARD — mimics LinkedIn card
+   SECTION CARD
    ========================================== */
 .section-card {
   background: var(--card-bg);
@@ -70,20 +71,13 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   box-shadow: var(--shadow-sm);
 }
 
-/* LinkedIn section header: e.g. "Experience", "Education" */
+/* LinkedIn section header — BOLD */
 .section-header {
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--text);
   line-height: 1.25;
   margin-bottom: 16px;
-}
-
-/* Thin separator row under header */
-.section-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 0 -28px 8px;
 }
 
 /* ==========================================
@@ -93,19 +87,14 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   display: flex;
   gap: 12px;
   padding: 12px 0;
-  position: relative;
 }
 
-/* Entry divider (thin line between entries) */
 .linkedin-entry + .linkedin-entry {
   border-top: 1px solid var(--border);
 }
 
-/* ---- LOGO COLUMN ---- */
-.entry-logo-wrap {
-  width: 48px;
-  flex-shrink: 0;
-}
+/* ---- LOGO ---- */
+.entry-logo-wrap { width: 48px; flex-shrink: 0; }
 .entry-logo {
   width: 48px; height: 48px;
   border-radius: 6px;
@@ -113,20 +102,15 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   border: 1px solid rgba(0,0,0,.08);
   background: #fff;
 }
-/* Placeholder logo — colored square with text */
 .entry-logo-placeholder {
   width: 48px; height: 48px;
   border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: 600; color: #fff;
   border: 1px solid rgba(0,0,0,.08);
 }
 
-/* ---- CONTENT COLUMN ---- */
+/* ---- CONTENT ---- */
 .entry-body { flex: 1; min-width: 0; }
 
 .entry-title {
@@ -147,12 +131,11 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   font-size: 1.4rem;
   color: var(--muted);
   line-height: 1.25;
-  margin-top: 0;
 }
 
 .entry-meta .sep { padding: 0 4px; color: var(--muted-light); }
 
-/* ---- DESCRIPTION BULLETS ---- */
+/* ---- DESCRIPTION ---- */
 .entry-desc {
   margin-top: 8px;
   font-size: 1.4rem;
@@ -160,22 +143,16 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   line-height: 1.5;
 }
 .entry-desc ul {
-  list-style: none;
-  padding: 0;
+  list-style: none; padding: 0;
 }
 .entry-desc ul li {
-  position: relative;
-  padding-left: 16px;
-  margin-bottom: 2px;
+  position: relative; padding-left: 16px; margin-bottom: 2px;
 }
 .entry-desc ul li::before {
-  content: '•';
-  position: absolute;
-  left: 2px;
-  color: var(--muted);
+  content: '•'; position: absolute; left: 2px; color: var(--muted);
 }
 
-/* ---- MISC LINE (under bullets) ---- */
+/* ---- MISC ---- */
 .entry-misc {
   margin-top: 8px;
   font-size: 1.4rem;
@@ -183,7 +160,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   line-height: 1.5;
 }
 
-/* ---- DATE COLUMN (right side) ---- */
+/* ---- DATE COLUMN ---- */
 .entry-side {
   font-size: 1.4rem;
   color: var(--muted);
@@ -218,7 +195,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   content: '';
   position: absolute;
   top: -50%; left: -50%; width: 200%; height: 200%;
-  background: radial-gradient(circle at 30% 50%, rgba(10,102,194,.08) 0%, transparent 50%),
+  background: radial-gradient(circle at 30% 50%, rgba(0,108,76,.08) 0%, transparent 50%),
               radial-gradient(circle at 70% 20%, rgba(10,102,194,.05) 0%, transparent 40%);
   animation: heroGlow 20s ease-in-out infinite;
 }
@@ -226,7 +203,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   0%, 100% { transform: translate(0,0); }
   50% { transform: translate(-2%,-1%); }
 }
-.hero-content { position: relative; z-index: 1; max-width: 600px; }
+.hero-content { position: relative; z-index: 1; max-width: 650px; }
 .hero-photo {
   width: 160px; height: 160px;
   border-radius: 50%;
@@ -234,29 +211,36 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   margin: 0 auto 24px;
   object-fit: cover;
   animation: float 4s ease-in-out infinite;
-  box-shadow: 0 0 60px rgba(10,102,194,.25);
+  box-shadow: 0 0 60px rgba(0,108,76,.25);
 }
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.hero h1 { font-size: 4rem; font-weight: 400; letter-spacing: -.01em; margin-bottom: 8px; }
+
+.hero-tagline-wrap {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-bottom: 24px;
 }
-.hero h1 { font-size: 4rem; font-weight: 400; letter-spacing: -.01em; margin-bottom: 4px; }
+.hero-hku-shield {
+  width: 28px; height: 28px;
+  border-radius: 4px;
+  background: var(--hku-green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem; font-weight: 700; color: #fff;
+  flex-shrink: 0;
+}
 .hero .hero-tagline {
   font-size: 1.6rem;
   font-weight: 400;
   color: rgba(255,255,255,.7);
   min-height: 1.6em;
-  margin-bottom: 4px;
 }
 .hero .hero-tagline .cursor {
   display: inline-block; width: 2px; height: 1.2em;
-  background: var(--blue); margin-left: 2px; vertical-align: text-bottom;
+  background: var(--hku-green); margin-left: 2px; vertical-align: text-bottom;
   animation: blink .8s step-end infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
-.hero .hero-location {
-  color: rgba(255,255,255,.55); font-size: 1.4rem; margin-bottom: 24px;
-}
+
 .hero .hero-buttons { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 .hero-scroll {
   position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
@@ -272,28 +256,13 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
    BUTTONS
    ========================================== */
 .btn {
-  display: inline-block;
-  padding: 6px 20px;
-  border-radius: 24px;
-  font-weight: 600;
-  font-size: 1.6rem;
-  transition: all .2s;
-  cursor: pointer;
-  border: none;
+  display: inline-block; padding: 6px 20px; border-radius: 24px;
+  font-weight: 600; font-size: 1.6rem; transition: all .2s; cursor: pointer; border: none;
 }
-.btn-primary {
-  background: var(--blue); color: #fff;
-}
-.btn-primary:hover {
-  background: var(--blue-hover); box-shadow: 0 0 0 2px rgba(10,102,194,.3);
-}
-.btn-outline {
-  background: transparent; color: #fff;
-  border: 1px solid rgba(255,255,255,.5);
-}
-.btn-outline:hover {
-  background: rgba(255,255,255,.12); border-color: #fff;
-}
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-hover); box-shadow: 0 0 0 2px rgba(10,102,194,.3); }
+.btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.5); }
+.btn-outline:hover { background: rgba(255,255,255,.12); border-color: #fff; }
 
 /* ==========================================
    STICKY NAV
@@ -314,92 +283,38 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   padding: 8px 10px; border-radius: 4px;
   transition: all .15s; white-space: nowrap;
 }
-.nav a:hover, .nav a.active {
-  color: #fff; background: rgba(255,255,255,.1);
-  text-decoration: none;
-}
-.hamburger {
-  display: none; background: none; border: none;
-  color: #fff; font-size: 2rem; cursor: pointer; padding: 4px 8px;
-}
-@media (max-width: 768px) {
-  .nav { justify-content: flex-end; }
-  .nav-links { display: none; flex-direction: column; width: 100%; background: rgba(26,60,94,.98); border-radius: 0 0 6px 6px; padding: 4px 0; }
-  .nav-links.open { display: flex; }
-  .nav-links a { padding: 10px 16px; font-size: 1.4rem; border-radius: 0; }
-  .hamburger { display: block; }
-}
+.nav a:hover, .nav a.active { color: #fff; background: rgba(255,255,255,.1); text-decoration: none; }
+.hamburger { display: none; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; padding: 4px 8px; }
 
 /* ==========================================
-   ABOUT TEXT
+   ABOUT
    ========================================== */
-.about-text {
-  font-size: 1.4rem; line-height: 1.6; color: var(--text);
-}
+.about-text { font-size: 1.4rem; line-height: 1.6; color: var(--text); }
 
 /* ==========================================
    SKILLS
    ========================================== */
 .skill-block { margin-bottom: 20px; }
-.skill-block h3 {
-  font-size: 1.6rem; font-weight: 600; color: var(--text);
-  margin-bottom: 8px;
-}
+.skill-block h3 { font-size: 1.6rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
-  display: inline-block;
-  padding: 4px 12px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  font-size: 1.4rem; font-weight: 500; color: var(--text);
-  transition: all .15s;
+  display: inline-block; padding: 4px 12px;
+  background: #fff; border: 1px solid var(--border); border-radius: 20px;
+  font-size: 1.4rem; font-weight: 500; color: var(--text); transition: all .15s;
 }
 .chip:hover { background: var(--blue-07); border-color: var(--blue); }
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-@media (max-width: 768px) { .skills-grid { grid-template-columns: 1fr; } }
 
 /* ==========================================
    CERT LIST
    ========================================== */
 .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
-@media (max-width: 600px) { .cert-grid { grid-template-columns: 1fr; } }
 .cert-item { display: flex; gap: 10px; align-items: flex-start; padding: 5px 0; }
 .cert-logo-img { width: 32px; height: 32px; border-radius: 4px; object-fit: contain; border: 1px solid rgba(0,0,0,.08); background: #fff; flex-shrink: 0; }
 .cert-logo-ph { width: 32px; height: 32px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: .9rem; color: #fff; font-weight: 600; flex-shrink: 0; }
 .cert-info .cert-name { font-size: 1.4rem; font-weight: 600; color: var(--text); line-height: 1.25; }
 .cert-info .cert-issuer { font-size: 1.4rem; color: var(--muted); }
-
-/* ==========================================
-   EXPANDABLE (Volunteering)
-   ========================================== */
-.expand-entry {
-  cursor: pointer;
-  padding: 10px 0;
-}
-.expand-entry + .expand-entry { border-top: 1px solid var(--border); }
-.expand-entry .expand-hdr {
-  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
-}
-.expand-entry .expand-arrow {
-  font-size: 1.6rem; color: var(--muted); transition: transform .25s; flex-shrink: 0;
-}
-.expand-entry.open .expand-arrow { transform: rotate(180deg); }
-.expand-entry .expand-body {
-  max-height: 0; overflow: hidden;
-  transition: max-height .35s ease, padding .25s;
-  font-size: 1.4rem; color: var(--text);
-}
-.expand-entry.open .expand-body { max-height: 500px; padding-top: 10px; }
-.expand-entry .expand-body ul {
-  list-style: none; padding: 0;
-}
-.expand-entry .expand-body ul li {
-  position: relative; padding-left: 16px; margin-bottom: 2px;
-}
-.expand-entry .expand-body ul li::before {
-  content: '•'; position: absolute; left: 2px; color: var(--muted);
-}
+.cert-info .cert-issuer a { color: var(--blue); font-weight: 500; }
 
 /* ==========================================
    PAGE SECTIONS
@@ -427,16 +342,21 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
    RESPONSIVE
    ========================================== */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 3rem; }
+  .hero h1 { font-size: 2.8rem; }
   .hero .hero-tagline { font-size: 1.4rem; }
+  .hero-tagline-wrap { gap: 6px; }
   .section-card { padding: 16px 14px 10px; }
-  .section-divider { margin: 0 -14px 8px; }
   .section-header { font-size: 1.8rem; }
   .entry-side { display: none; }
   .section-card .linkedin-entry.highlight { margin: 0 -14px; padding: 12px 14px; width: calc(100% + 28px); }
+  .skills-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr; }
+  .nav { justify-content: flex-end; }
+  .nav-links { display: none; flex-direction: column; width: 100%; background: rgba(26,60,94,.98); border-radius: 0 0 6px 6px; padding: 4px 0; }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 16px; font-size: 1.4rem; border-radius: 0; }
+  .hamburger { display: block; }
 }
-
-/* ---- Inline date for mobile ---- */
 @media (min-width: 769px) {
   .entry-meta-mobile { display: none; }
 }
@@ -452,13 +372,15 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
      ========================================== -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <img class="hero-photo" src="Gary_Cheung_Profile_Photo.jpg" alt="Gary Cheung" onerror="this.style.display='none'">
+    <img class="hero-photo" src="gary%20icon.jpg" alt="Gary Cheung" onerror="this.style.borderColor='rgba(255,255,255,.3)'">
     <h1>Gary Cheung</h1>
-    <div class="hero-tagline" id="typing-target"></div>
-    <div class="hero-location">Hong Kong SAR</div>
+    <div class="hero-tagline-wrap">
+      <div class="hero-hku-shield">HKU</div>
+      <div class="hero-tagline" id="typing-target"></div>
+    </div>
     <div class="hero-buttons">
       <a href="https://www.linkedin.com/in/garyccp/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
-      <a href="mailto:you@example.com" class="btn btn-outline">Contact</a>
+      <a href="mailto:garycheung@connect.hku.hk" class="btn btn-outline">Contact</a>
     </div>
   </div>
   <div class="hero-scroll" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" title="Scroll down">↓</div>
@@ -565,7 +487,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
     <!-- Flour Power -->
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="140">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#E67E22">FP</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">Organizational Attachment</div>
@@ -625,7 +547,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
     <!-- HKU -->
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="50">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#006C4C">HKU</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">The University of Hong Kong</div>
@@ -639,7 +561,16 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
           <li>Scholarship: Life Encouraging Fund Holistic Development Scholarship</li>
           <li>Ambassador: Student Service Ambassador</li>
         </ul></div>
-        <div class="entry-misc">Activities and societies: AIESEC Global Volunteer · Netball Team · LDP Singapore · Nocodile AI Platform · HKU Service-Learning Ambassador · Microsoft Student Ambassador Hong Kong · Member (AI Soc, Investment Society, Blockchain Club, HKU Ministry, Uni-YMCA, Stack Undarflow, DSA)</div>
+        <div class="entry-misc">
+          <strong>Activities and societies:</strong><br>
+          AIESEC Global Volunteer<br>
+          Netball Team<br>
+          LDP Singapore<br>
+          Nocodile AI Platform<br>
+          HKU Service-Learning Ambassador<br>
+          Microsoft Student Ambassador Hong Kong<br>
+          Member (AI Soc, Investment Society, Blockchain Club, HKU Ministry, Uni-YMCA, Stack Undarflow, DSA)
+        </div>
       </div>
       <div class="entry-side">2024 – 2028</div>
     </div>
@@ -656,7 +587,13 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
           <li>HKDSE Best 5 28/35</li>
           <li>Community Engagement and Competitive Programming</li>
         </ul></div>
-        <div class="entry-misc">Activities and societies: UNICEF Club · St. Savio Service Group · HKOI Training Team · Basketball Team</div>
+        <div class="entry-misc">
+          <strong>Activities and societies:</strong><br>
+          UNICEF Club<br>
+          St. Savio Service Group<br>
+          HKOI Training Team<br>
+          Basketball Team
+        </div>
       </div>
       <div class="entry-side">2018 – 2024</div>
     </div>
@@ -721,7 +658,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#1E3799;display:none">EF</div>
         <div class="cert-info">
           <div class="cert-name">EF SET English Certificate (C2 Proficient)</div>
-          <div class="cert-issuer">EF SET · Issued Mar 2026</div>
+          <div class="cert-issuer">EF SET · Issued Mar 2026 · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -730,7 +667,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#20BEFF;display:none">KG</div>
         <div class="cert-info">
           <div class="cert-name">Intro to Machine Learning</div>
-          <div class="cert-issuer">Kaggle · Online course</div>
+          <div class="cert-issuer">Kaggle · Online course · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -738,7 +675,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#005EB8">KP</div>
         <div class="cert-info">
           <div class="cert-name">Advisory (Job Simulation)</div>
-          <div class="cert-issuer">KPMG US · EgtQkiNjggGQmpXdb</div>
+          <div class="cert-issuer">KPMG US · EgtQkiNjggGQmpXdb · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -746,7 +683,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#D9392C">Pw</div>
         <div class="cert-info">
           <div class="cert-name">Technology Consulting (Job Simulation)</div>
-          <div class="cert-issuer">PwC · iCSPACEHGn4f9kHvC</div>
+          <div class="cert-issuer">PwC · iCSPACEHGn4f9kHvC · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -754,7 +691,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#0066CC">DL</div>
         <div class="cert-info">
           <div class="cert-name">AI For Everyone</div>
-          <div class="cert-issuer">DeepLearning.AI · CAYXNBYRQIMM</div>
+          <div class="cert-issuer">DeepLearning.AI · CAYXNBYRQIMM · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -762,7 +699,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#232D4B">UV</div>
         <div class="cert-info">
           <div class="cert-name">Digital Transformation</div>
-          <div class="cert-issuer">University of Virginia · 1ZT6KZBI00RQ</div>
+          <div class="cert-issuer">University of Virginia · 1ZT6KZBI00RQ · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -770,7 +707,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#003A6B">SB</div>
         <div class="cert-info">
           <div class="cert-name">Data Science (Job Simulation)</div>
-          <div class="cert-issuer">Standard Bank Group · kn24iH8mu99paS6Ma</div>
+          <div class="cert-issuer">Standard Bank Group · kn24iH8mu99paS6Ma · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -778,7 +715,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#005248">BC</div>
         <div class="cert-info">
           <div class="cert-name">Digital Transformation (Job Simulation)</div>
-          <div class="cert-issuer">BCG · YL7HoC3MQLLRaHCYB</div>
+          <div class="cert-issuer">BCG · YL7HoC3MQLLRaHCYB · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -786,7 +723,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#D9392C">Pw</div>
         <div class="cert-info">
           <div class="cert-name">Power BI (Job Simulation)</div>
-          <div class="cert-issuer">PwC Switzerland · sFN3k3o7BPXnL27A2</div>
+          <div class="cert-issuer">PwC Switzerland · sFN3k3o7BPXnL27A2 · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -794,7 +731,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#A100FF">AC</div>
         <div class="cert-info">
           <div class="cert-name">Data Analytics and Visualization (Job Simulation)</div>
-          <div class="cert-issuer">Accenture · AJaAK7nodZaimTRhJ</div>
+          <div class="cert-issuer">Accenture · AJaAK7nodZaimTRhJ · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -802,7 +739,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#005248">BC</div>
         <div class="cert-info">
           <div class="cert-name">GenAI (Job Simulation)</div>
-          <div class="cert-issuer">BCG · iDkuHxncyfafPezE3</div>
+          <div class="cert-issuer">BCG · iDkuHxncyfafPezE3 · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -810,7 +747,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
         <div class="cert-logo-ph" style="background:#0056D2">CO</div>
         <div class="cert-info">
           <div class="cert-name">Python for Data Visualization: Matplotlib &amp; Seaborn</div>
-          <div class="cert-issuer">Coursera · 1Y58PUFKON91</div>
+          <div class="cert-issuer">Coursera · 1Y58PUFKON91 · <a href="https://www.linkedin.com/in/garyccp/details/certifications/" target="_blank" rel="noopener">Show credential</a></div>
         </div>
       </div>
 
@@ -823,7 +760,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
 
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="50">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#2E86C1">IR</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">Insurance Risk Classification with Random Forest</div>
@@ -836,7 +773,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
 
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="80">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#8E44AD">NC</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">Nocodile: Codeless AI Platform</div>
@@ -850,7 +787,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
 
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="110">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#F39C12">₿</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">Predicting Bitcoin Prices: Integrating Historical Data &amp; Wikipedia Sentiment Analysis</div>
@@ -881,7 +818,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
 
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="170">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#27AE60">CD</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">The Image Classification and Computer Vision Model for Cataract Detection</div>
@@ -893,147 +830,149 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
     </div>
   </div>
 
-  <!-- ========== VOLUNTEERING ========== -->
+  <!-- ========== VOLUNTEERING (no collapse — full entries like Experience) ========== -->
   <div class="section-card" id="volunteering">
     <h2 class="section-header" data-aos="fade-up">Volunteering</h2>
-    <div data-aos="fade-up" data-aos-delay="50">
 
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">Global Volunteer</div>
-            <div class="entry-subtitle">AIESEC in Malaysia</div>
-            <div class="entry-meta">Jul 2025 – Sep 2025 · 3 mos</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><ul>
-          <li>Collaborated on a multicultural team delivering lessons and encouraging intercultural discussion and promoting SDG 4.7 (Quality Education)</li>
-          <li>Mentored 20+ students in Mathematics with customized support</li>
-          <li>Co-hosted a "Global Village Leadership Bootcamp" for 70 students, showcasing 12 international cultures</li>
-          <li>Engaged directly with the local Malay community in Kampung Sri Paya</li>
-          <li><em>OC: AIESEC UTM · Jeremiah Education Centre · Ages 11–17 · SPM, IGCSE</em></li>
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="50">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:#037EF3">AI</div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title">Global Volunteer</div>
+        <div class="entry-subtitle">AIESEC in Malaysia</div>
+        <div class="entry-meta entry-meta-mobile">Jul 2025 – Sep 2025 · 3 mos</div>
+        <div class="entry-desc"><ul>
+          <li>Collaborated on a multicultural team in Malaysia, delivering lessons and encouraging intercultural discussion and promoting the values of SDG 4.7 (Quality Education)</li>
+          <li>Mentored 20+ students in Mathematics with customized support, improving their confidence and active engagement in class</li>
+          <li>Co-hosted a "Global Village Leadership Bootcamp" for 70 students, showcasing 12 international cultures, enhancing students' awareness around the world, and specifically presenting Hong Kong's unique cultural identity</li>
+          <li>Engaged directly with the local Malay community in Kampung Sri Paya, participating in cultural activities and gaining deep, firsthand insight into traditional Malay community life and customs</li>
+        </ul></div>
+        <div class="entry-misc">OC: AIESEC in University of Technology Malaysia (UTM) · School: Jeremiah Education Centre · Age group: 11–17 · Curriculum: SPM, IGCSE</div>
+      </div>
+      <div class="entry-side">Jul – Sep 2025<span class="sep"> · </span>3 mos</div>
+    </div>
+
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="80">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title">Project Management</div>
+        <div class="entry-subtitle">Flour Power SG</div>
+        <div class="entry-meta entry-meta-mobile">Jun 2025 – Jul 2025 · 2 mos</div>
+        <div class="entry-desc"><ul>
+          <li>Collaborated in an international team to design a proposal for an inclusive culinary livestreaming platform targeted for Persons with Disabilities in Singapore, ASEAN regions, and Asia for 4 weeks</li>
+          <li>Developed strong cross-cultural project management and presentation skills, adaptable to designing and implementing cultural programs</li>
+        </ul></div>
+        <div class="entry-misc">Organization: Flour Power SG (HKU-Common Purpose Leadership Program) · Goal: Creating economic empowerment for Person with disabilities (PWD) and their family · Focus: Financial sustainability & Impact metrics</div>
+      </div>
+      <div class="entry-side">Jun – Jul 2025<span class="sep"> · </span>2 mos</div>
+    </div>
+
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="110">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:#037EF3">AI</div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title">Global Volunteer</div>
+        <div class="entry-subtitle">AIESEC in Taiwan</div>
+        <div class="entry-meta entry-meta-mobile">Dec 2024 – Feb 2025 · 3 mos</div>
+        <div class="entry-desc"><ul>
+          <li>Designed and delivered an interactive cultural lesson on Hong Kong to over 860 primary students, covering history, traditions, geography, and popular culture</li>
+          <li>Facilitated comparative discussions between Hong Kong and Taiwanese cultures, enhancing students' appreciation for the diversity within Greater China and fostering regional understanding</li>
+          <li>Leveraged native knowledge of Cantonese to teach basic phrases and linguistic nuances, creating an immersive learning experience and bridging cultural connections, making an impact on SDG 4.7 (Quality Education)</li>
+        </ul></div>
+        <div class="entry-misc">Project: Youth 4 impact (Global Classroom, Camp and Conference) · OC: AIESEC in Fu Jen Catholic University (FJU), NCKU · School: Danhai Primary School · 28 sessions · 840 students · 6-week cultural immersion program</div>
+      </div>
+      <div class="entry-side">Dec 2024 – Feb 2025<span class="sep"> · </span>3 mos</div>
+    </div>
+
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="140">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title">ROAD Volunteer</div>
+        <div class="entry-subtitle">Branches of Hope Ltd</div>
+        <div class="entry-meta entry-meta-mobile">Refugee Opportunity and Development Programme</div>
+        <div class="entry-desc"><ul>
+          <li>ROAD serves over 600 refugees and asylum seekers (non-refoulement claimants), mainly from Africa, Middle East and South Asia living in Hong Kong to let them integrate into Hong Kong local communities</li>
+        </ul></div>
+        <div class="entry-misc">Highlighted events: Exhibition to raise awareness @HKU U-Street (Poster Infographics, Game Design, Event Management) · Second-hand clothing distribution @The Vine Church · Lunch gathering preparation · Old book free giveaway · Childcaring</div>
+      </div>
+    </div>
+
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="170">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:#E91E63">WI</div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title">School-Based Workshop Volunteer</div>
+        <div class="entry-subtitle">Women In Sports Empowered Hong Kong (睿動香港)</div>
+        <div class="entry-meta entry-meta-mobile">A.C.E. Program: Active Body, Active Mind, Commitment, Enjoyment</div>
+        <div class="entry-desc"><ul>
+          <li>Supported local-school programs from February 2025 to June 2025 for students aged 12–14 (all genders)</li>
+          <li>Assisted facilitators in smaller group activities — encouraging participation in discussions, explaining activities if students did not understand instructions, and generally being supportive to students</li>
         </ul></div>
       </div>
+    </div>
 
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">Project Management</div>
-            <div class="entry-subtitle">Flour Power SG</div>
-            <div class="entry-meta">Jun 2025 – Jul 2025 · 2 mos</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><ul>
-          <li>Collaborated in an international team to design a proposal for an inclusive culinary livestreaming platform for PWDs in Singapore, ASEAN, and Asia</li>
-          <li>Developed strong cross-cultural project management and presentation skills</li>
-          <li>Organization: Flour Power SG (HKU-Common Purpose Leadership Program)</li>
-          <li>Focus: Financial sustainability & Impact metrics</li>
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="200">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:#00AEEF">UN</div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title">UNICEF Club Vice Chairman</div>
+        <div class="entry-subtitle">UNICEF @KTMC</div>
+        <div class="entry-desc"><ul>
+          <li>Led UNICEF initiatives at Kwun Tong Maryknoll College — focus area: Children</li>
         </ul></div>
       </div>
+    </div>
 
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">Global Volunteer</div>
-            <div class="entry-subtitle">AIESEC in Taiwan</div>
-            <div class="entry-meta">Dec 2024 – Feb 2025 · 3 mos</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><ul>
-          <li>Designed and delivered interactive cultural lessons on Hong Kong to 860+ primary students</li>
-          <li>Facilitated discussions between Hong Kong and Taiwanese cultures</li>
-          <li>Taught Cantonese phrases — SDG 4.7 (Quality Education)</li>
-          <li>28 sessions · 840 students at Danhai Primary School, Taiwan · 6-week program</li>
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="230">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:#1A5276">KT</div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title">Fundraising Volunteer</div>
+        <div class="entry-subtitle">Caritas-Hong Kong</div>
+        <div class="entry-meta entry-meta-mobile">Poverty Alleviation</div>
+        <div class="entry-desc"><ul>
+          <li>Caritas Charity Bazaar 2023 Coordinator of KTMC Booth</li>
         </ul></div>
       </div>
+    </div>
 
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">ROAD Volunteer</div>
-            <div class="entry-subtitle">Branches of Hope Ltd</div>
-            <div class="entry-meta">Refugee Opportunity and Development Programme</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><ul>
-          <li>ROAD serves over 600 refugees and asylum seekers (non-refoulement claimants), mainly from Africa, Middle East and South Asia living in Hong Kong</li>
-          <li>Exhibition @HKU U-Street · Second-hand clothing distribution @The Vine Church · Lunch gathering preparation · Old book free giveaway · Childcaring</li>
-        </ul></div>
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="260">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:#1A5276">KT</div>
       </div>
-
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">School-Based Workshop Volunteer</div>
-            <div class="entry-subtitle">Women In Sports Empowered Hong Kong (睿動香港)</div>
-            <div class="entry-meta">A.C.E. Program: Active Body, Active Mind, Commitment, Enjoyment</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><ul>
-          <li>Supported local-school programs from February 2025 to June 2025 for students aged 12–14</li>
-          <li>Assisted facilitators in smaller group activities, encouraging participation and explaining activities</li>
-        </ul></div>
-      </div>
-
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">UNICEF Club Vice Chairman</div>
-            <div class="entry-subtitle">UNICEF @KTMC</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><p>Led UNICEF initiatives at Kwun Tong Maryknoll College — focus area: Children.</p></div>
-      </div>
-
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">Fundraising Volunteer</div>
-            <div class="entry-subtitle">Caritas-Hong Kong</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><ul>
-          <li>Poverty Alleviation focus</li>
-          <li>Caritas Charity Bazaar 2023 — Coordinator of KTMC Booth</li>
-        </ul></div>
-      </div>
-
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">Vice President</div>
-            <div class="entry-subtitle">St. Savio Service Group</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><ul>
+      <div class="entry-body">
+        <div class="entry-title">Vice President</div>
+        <div class="entry-subtitle">St. Savio Service Group</div>
+        <div class="entry-meta entry-meta-mobile">Social Services</div>
+        <div class="entry-desc"><ul>
           <li>Prepared Birthday Party at Caritas Elderly Centre — Kwun Tong</li>
           <li>Made 12-page Life Autograph Album for elderly in Tsui Ping Estate</li>
-          <li>Visited 5 singleton elderly family in Tsui Ping Estate, Kwun Tong</li>
+          <li>Visited 5 singleton elderly families in Tsui Ping Estate, Kwun Tong</li>
         </ul></div>
       </div>
+    </div>
 
-      <div class="expand-entry">
-        <div class="expand-hdr" onclick="toggleExpand(this.parentElement)">
-          <div style="flex:1;min-width:0;">
-            <div class="entry-title">Volunteer</div>
-            <div class="entry-subtitle">HKU Centre of Development and Resources for Students (CEDARS)</div>
-          </div>
-          <span class="expand-arrow">▾</span>
-        </div>
-        <div class="expand-body"><ul>
+    <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="290">
+      <div class="entry-logo-wrap">
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title">Volunteer</div>
+        <div class="entry-subtitle">HKU Centre of Development and Resources for Students (CEDARS)</div>
+        <div class="entry-desc"><ul>
           <li><strong>Serve 2Gather (S2G):</strong> Celebrate Lunar New Year with the Community (Elderly + Poon Choi Gathering at Ping Shek Estate) · Visit Subdivided Unit Families with Hollywood Actress JuJu Chan</li>
-          <li><strong>Service-Learning Ambassador Programme:</strong> Branches of Hope — Full Day Volunteer Work Preparation · STOP Volunteer Service · ROAD Volunteer Service · Exhibition</li>
+          <li><strong>Service-Learning Ambassador Programme — Branches of Hope:</strong> Full Day of Volunteer Work Preparation · STOP Volunteer Service · ROAD Volunteer Service · Preparation for Exhibition · Exhibition</li>
         </ul></div>
       </div>
-
     </div>
   </div>
 
@@ -1056,7 +995,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
 
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="80">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#006C4C">HKU</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">Joint-University Netball Tournament: Men's Team Championship</div>
@@ -1080,7 +1019,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
 
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="140">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#006C4C">HKU</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">Hong Kong Chiu Chow Chamber of Commerce Rayson Huang Memorial Student Enrichment Award</div>
@@ -1143,7 +1082,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
     </div>
     <div class="linkedin-entry" data-aos="fade-up" data-aos-delay="170">
       <div class="entry-logo-wrap">
-        <div class="entry-logo-placeholder" style="background:#2C3E50">SU</div>
+        <div class="entry-logo-placeholder" style="background:var(--hku-green)">HKU</div>
       </div>
       <div class="entry-body">
         <div class="entry-title">Shaoguan University</div>
@@ -1163,7 +1102,7 @@ a:hover { color: var(--blue-hover); text-decoration: underline; }
   <p>I'm always open to new opportunities and conversations.</p>
   <div class="footer-btns">
     <a href="https://www.linkedin.com/in/garyccp/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
-    <a href="mailto:you@example.com" class="btn btn-outline">Email Me</a>
+    <a href="mailto:garycheung@connect.hku.hk" class="btn btn-outline">Email Me</a>
   </div>
   <div class="footer-copy">© 2026 Gary Cheung</div>
 </footer>
@@ -1178,7 +1117,7 @@ AOS.init({ duration: 600, easing: 'ease-out-cubic', once: true, offset: 80, disa
 // Typing effect
 (function() {
   const target = document.getElementById('typing-target');
-  const text = "HKU AppliedAI 28' | Sophomore";
+  const text = "HKU AppliedAI 28'";
   let i = 0;
   function type() {
     if (i < text.length) {
@@ -1215,9 +1154,6 @@ AOS.init({ duration: 600, easing: 'ease-out-cubic', once: true, offset: 80, disa
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
 })();
-
-// Expandable cards
-function toggleExpand(card) { card.classList.toggle('open'); }
 
 // Mobile hamburger
 (function() {
